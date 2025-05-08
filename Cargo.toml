@@ -1,0 +1,17 @@
+[package]
+name = "a2b_news_aggregator"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+axum = "0.8.4"
+reqwest = { version = "0.12.15", features = ["json", "rustls-tls"] } 
+rss = "2.0.12" # Check crates.io for latest
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1.0"
+thiserror = "1.0"
+chrono = { version = "0.4.41", features = ["serde"] }
