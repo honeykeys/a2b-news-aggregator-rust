@@ -1,1 +1,11 @@
-/target
+/target/
+debug/
+release/
+.env
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+Thumbs.db

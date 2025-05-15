@@ -1,0 +1,368 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 971B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.85
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/debian:bookworm
+#3 DONE 3.5s
+
+#2 [internal] load metadata for docker.io/library/rust:1.85
+#2 DONE 3.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [runtime 1/5] FROM docker.io/library/debian:bookworm@sha256:264982ff4d18000fa74540837e2c43ca5137a53a83f8f62c7b3803c0f0bdcd56
+#6 resolve docker.io/library/debian:bookworm@sha256:264982ff4d18000fa74540837e2c43ca5137a53a83f8f62c7b3803c0f0bdcd56 0.0s done
+#6 DONE 0.0s
+
+#7 [builder 1/9] FROM docker.io/library/rust:1.85@sha256:e51d0265072d2d9d5d320f6a44dde6b9ef13653b035098febd68cce8fa7c0bc4
+#7 resolve docker.io/library/rust:1.85@sha256:e51d0265072d2d9d5d320f6a44dde6b9ef13653b035098febd68cce8fa7c0bc4
+#7 resolve docker.io/library/rust:1.85@sha256:e51d0265072d2d9d5d320f6a44dde6b9ef13653b035098febd68cce8fa7c0bc4 0.0s done
+#7 DONE 0.0s
+
+#6 [runtime 1/5] FROM docker.io/library/debian:bookworm@sha256:264982ff4d18000fa74540837e2c43ca5137a53a83f8f62c7b3803c0f0bdcd56
+#6 CACHED
+
+#8 [builder 2/9] WORKDIR /usr/src/a2b_news_aggregator
+#8 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 228B done
+#5 DONE 0.0s
+
+#9 [builder 3/9] COPY Cargo.toml Cargo.lock ./
+#9 DONE 0.1s
+
+#10 [runtime 2/5] RUN apt-get update &&     apt-get install -y libssl3 ca-certificates &&     rm -rf /var/lib/apt/lists/*
+#10 0.235 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#10 ...
+
+#11 [builder 4/9] RUN mkdir src && echo "fn main(){}" > src/main.rs
+#11 DONE 0.2s
+
+#10 [runtime 2/5] RUN apt-get update &&     apt-get install -y libssl3 ca-certificates &&     rm -rf /var/lib/apt/lists/*
+#10 0.251 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#10 0.254 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#10 0.346 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#10 0.525 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [512 B]
+#10 0.600 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [258 kB]
+#10 1.747 Fetched 9305 kB in 2s (6051 kB/s)
+#10 1.747 Reading package lists...
+#10 2.860 Reading package lists...
+#10 3.473 Building dependency tree...
+#10 3.629 Reading state information...
+#10 3.826 The following additional packages will be installed:
+#10 3.826   openssl
+#10 3.880 The following NEW packages will be installed:
+#10 3.883   ca-certificates libssl3 openssl
+#10 3.916 0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+#10 3.916 Need to get 3606 kB of archives.
+#10 3.916 After this operation, 8910 kB of additional disk space will be used.
+#10 3.916 Get:1 http://deb.debian.org/debian bookworm/main amd64 libssl3 amd64 3.0.15-1~deb12u1 [2025 kB]
+#10 3.977 Get:2 http://deb.debian.org/debian bookworm/main amd64 openssl amd64 3.0.15-1~deb12u1 [1427 kB]
+#10 3.988 Get:3 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311 [153 kB]
+#10 4.140 debconf: delaying package configuration, since apt-utils is not installed
+#10 4.169 Fetched 3606 kB in 0s (38.2 MB/s)
+#10 4.205 Selecting previously unselected package libssl3:amd64.
+#10 4.205 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6091 files and directories currently installed.)
+#10 4.215 Preparing to unpack .../libssl3_3.0.15-1~deb12u1_amd64.deb ...
+#10 4.221 Unpacking libssl3:amd64 (3.0.15-1~deb12u1) ...
+#10 4.468 Selecting previously unselected package openssl.
+#10 4.468 Preparing to unpack .../openssl_3.0.15-1~deb12u1_amd64.deb ...
+#10 4.476 Unpacking openssl (3.0.15-1~deb12u1) ...
+#10 4.772 Selecting previously unselected package ca-certificates.
+#10 4.775 Preparing to unpack .../ca-certificates_20230311_all.deb ...
+#10 4.778 Unpacking ca-certificates (20230311) ...
+#10 4.887 Setting up libssl3:amd64 (3.0.15-1~deb12u1) ...
+#10 4.895 Setting up openssl (3.0.15-1~deb12u1) ...
+#10 4.921 Setting up ca-certificates (20230311) ...
+#10 5.085 debconf: unable to initialize frontend: Dialog
+#10 5.085 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#10 5.085 debconf: falling back to frontend: Readline
+#10 5.087 debconf: unable to initialize frontend: Readline
+#10 5.087 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#10 5.087 debconf: falling back to frontend: Teletype
+#10 5.979 Updating certificates in /etc/ssl/certs...
+#10 ...
+
+#12 [builder 5/9] RUN cargo build --release --locked
+#12 0.344     Updating crates.io index
+#12 2.130  Downloading crates ...
+#12 2.186   Downloaded derive_builder_macro v0.20.2
+#12 2.231   Downloaded http-body v1.0.1
+#12 2.231   Downloaded openssl-macros v0.1.1
+#12 2.416   Downloaded rand_chacha v0.9.0
+#12 2.446   Downloaded sync_wrapper v1.0.2
+#12 2.461   Downloaded write16 v1.0.0
+#12 2.467   Downloaded writeable v0.5.5
+#12 2.472   Downloaded yoke v0.7.5
+#12 2.478   Downloaded hyper v1.6.0
+#12 2.492   Downloaded quick-xml v0.37.5
+#12 2.504   Downloaded url v2.5.4
+#12 2.510   Downloaded openssl v0.10.72
+#12 2.525   Downloaded zerofrom v0.1.6
+#12 2.528   Downloaded zerofrom-derive v0.1.6
+#12 2.532   Downloaded yoke-derive v0.7.5
+#12 2.535   Downloaded tracing-subscriber v0.3.19
+#12 2.549   Downloaded vcpkg v0.2.15
+#12 2.622   Downloaded rustc-hash v2.1.1
+#12 2.626   Downloaded webpki-roots v1.0.0
+#12 2.633   Downloaded serde_derive v1.0.219
+#12 2.639   Downloaded rss v2.0.12
+#12 2.647   Downloaded serde v1.0.219
+#12 2.653   Downloaded zerovec v0.10.4
+#12 2.663   Downloaded libc v0.2.172
+#12 2.713   Downloaded regex-automata v0.4.9
+#12 2.739   Downloaded serde_json v1.0.140
+#12 2.751   Downloaded reqwest v0.12.15
+#12 2.765   Downloaded tokio v1.45.0
+#12 2.838   Downloaded zerocopy v0.8.25
+#12 2.873   Downloaded zerovec-derive v0.10.3
+#12 2.876   Downloaded zeroize v1.8.1
+#12 2.880   Downloaded regex-syntax v0.6.29
+#12 2.890   Downloaded regex-syntax v0.8.5
+#12 2.903   Downloaded regex v1.11.1
+#12 2.924   Downloaded quinn-proto v0.11.11
+#12 2.935   Downloaded rustls v0.23.27
+#12 2.954   Downloaded chrono v0.4.41
+#12 2.966   Downloaded icu_properties_data v1.5.1
+#12 2.980   Downloaded h2 v0.4.10
+#12 2.995   Downloaded futures-util v0.3.31
+#12 3.019   Downloaded aho-corasick v1.1.3
+#12 3.037   Downloaded unicode-ident v1.0.18
+#12 3.045   Downloaded tower v0.5.2
+#12 3.069   Downloaded mio v1.0.3
+#12 3.079   Downloaded idna v1.0.3
+#12 3.086   Downloaded hashbrown v0.15.3
+#12 3.094   Downloaded webpki-roots v0.26.11
+#12 3.098   Downloaded utf8_iter v1.0.4
+#12 3.100   Downloaded utf16_iter v1.0.5
+#12 3.102   Downloaded untrusted v0.9.0
+#12 3.106   Downloaded tracing-log v0.2.0
+#12 3.109   Downloaded encoding_rs v0.8.35
+#12 3.139   Downloaded tracing-core v0.1.33
+#12 3.144   Downloaded tracing-attributes v0.1.28
+#12 3.150   Downloaded tracing v0.1.41
+#12 3.157   Downloaded tinyvec v1.9.0
+#12 3.163   Downloaded ryu v1.0.20
+#12 3.169   Downloaded rustls-webpki v0.103.2
+#12 3.175   Downloaded rustls-pki-types v1.12.0
+#12 3.184   Downloaded rand v0.9.1
+#12 3.192   Downloaded quinn v0.11.7
+#12 3.199   Downloaded openssl-sys v0.9.108
+#12 3.207   Downloaded memchr v2.7.4
+#12 3.217   Downloaded indexmap v2.9.0
+#12 3.225   Downloaded icu_collections v1.5.0
+#12 3.236   Downloaded http v1.3.1
+#12 3.244   Downloaded cc v1.2.21
+#12 3.252   Downloaded want v0.3.1
+#12 3.255   Downloaded try-lock v0.2.5
+#12 3.258   Downloaded tower-service v0.3.3
+#12 3.260   Downloaded tower-layer v0.3.3
+#12 3.263   Downloaded tower-http v0.5.2
+#12 3.277   Downloaded tokio-util v0.7.15
+#12 3.289   Downloaded tokio-rustls v0.26.2
+#12 3.294   Downloaded tokio-native-tls v0.3.1
+#12 3.298   Downloaded thiserror v2.0.12
+#12 3.308   Downloaded thiserror v1.0.69
+#12 3.318   Downloaded synstructure v0.13.2
+#12 3.321   Downloaded syn v2.0.101
+#12 3.339   Downloaded tokio-macros v2.5.0
+#12 3.341   Downloaded tinystr v0.7.6
+#12 3.347   Downloaded thread_local v1.1.8
+#12 3.350   Downloaded thiserror-impl v2.0.12
+#12 3.353   Downloaded thiserror-impl v1.0.69
+#12 3.356   Downloaded scopeguard v1.2.0
+#12 3.359   Downloaded rustversion v1.0.20
+#12 3.365   Downloaded rustls-pemfile v2.2.0
+#12 3.370   Downloaded proc-macro2 v1.0.95
+#12 3.375   Downloaded pin-project-lite v0.2.16
+#12 3.385   Downloaded parking_lot v0.12.3
+#12 3.390   Downloaded num-traits v0.2.19
+#12 3.395   Downloaded native-tls v0.2.14
+#12 3.401   Downloaded log v0.4.27
+#12 3.406   Downloaded icu_properties v1.5.1
+#12 3.411   Downloaded icu_normalizer_data v1.5.1
+#12 3.416   Downloaded hyper-util v0.1.11
+#12 3.425   Downloaded darling_core v0.20.11
+#12 3.434   Downloaded bytes v1.10.1
+#12 3.442   Downloaded ring v0.17.14
+#12 3.513   Downloaded base64 v0.22.1
+#12 3.522   Downloaded anyhow v1.0.98
+#12 3.528   Downloaded subtle v2.6.1
+#12 3.532   Downloaded strsim v0.11.1
+#12 3.535   Downloaded stable_deref_trait v1.2.0
+#12 3.537   Downloaded socket2 v0.5.9
+#12 3.542   Downloaded smallvec v1.15.0
+#12 3.550   Downloaded slab v0.4.9
+#12 3.553   Downloaded signal-hook-registry v1.4.5
+#12 3.557   Downloaded shlex v1.3.0
+#12 3.561   Downloaded sharded-slab v0.1.7
+#12 3.568   Downloaded serde_urlencoded v0.7.1
+#12 3.572   Downloaded serde_path_to_error v0.1.17
+#12 3.575   Downloaded tinyvec_macros v0.1.1
+#12 3.577   Downloaded regex-automata v0.1.10
+#12 3.586   Downloaded rand_core v0.9.3
+#12 3.589   Downloaded quote v1.0.40
+#12 3.594   Downloaded quinn-udp v0.5.12
+#12 3.600   Downloaded pkg-config v0.3.32
+#12 3.605   Downloaded parking_lot_core v0.9.10
+#12 3.609   Downloaded overload v0.1.1
+#12 3.612   Downloaded once_cell v1.21.3
+#12 3.619   Downloaded nu-ansi-term v0.46.0
+#12 3.625   Downloaded mime v0.3.17
+#12 3.631   Downloaded matchit v0.8.4
+#12 3.665   Downloaded lock_api v0.4.12
+#12 3.669   Downloaded litemap v0.7.5
+#12 3.674   Downloaded ipnet v2.11.0
+#12 3.698   Downloaded icu_provider v1.5.0
+#12 3.704   Downloaded icu_normalizer v1.5.0
+#12 3.714   Downloaded icu_locid_transform_data v1.5.1
+#12 3.718   Downloaded icu_locid_transform v1.5.0
+#12 3.723   Downloaded icu_locid v1.5.0
+#12 3.733   Downloaded iana-time-zone v0.1.63
+#12 3.738   Downloaded hyper-rustls v0.27.5
+#12 3.742   Downloaded httpdate v1.0.3
+#12 3.746   Downloaded httparse v1.10.1
+#12 3.752   Downloaded getrandom v0.3.2
+#12 3.757   Downloaded getrandom v0.2.16
+#12 3.762   Downloaded futures-channel v0.3.31
+#12 3.766   Downloaded derive_builder_core v0.20.2
+#12 3.769   Downloaded derive_builder v0.20.2
+#12 3.777   Downloaded darling v0.20.11
+#12 3.784   Downloaded bitflags v2.9.0
+#12 3.791   Downloaded axum-core v0.5.2
+#12 3.795   Downloaded axum v0.8.4
+#12 3.809   Downloaded atom_syndication v0.12.7
+#12 3.816   Downloaded ppv-lite86 v0.2.21
+#12 3.820   Downloaded pin-utils v0.1.0
+#12 3.823   Downloaded percent-encoding v2.3.1
+#12 3.826   Downloaded openssl-probe v0.1.6
+#12 3.828   Downloaded lazy_static v1.5.0
+#12 3.833   Downloaded itoa v1.0.15
+#12 3.836   Downloaded idna_adapter v1.2.0
+#12 3.838   Downloaded hyper-tls v0.6.0
+#12 3.841   Downloaded http-body-util v0.1.3
+#12 3.845   Downloaded futures-task v0.3.31
+#12 3.848   Downloaded futures-sink v0.3.31
+#12 3.851   Downloaded futures-core v0.3.31
+#12 3.855   Downloaded form_urlencoded v1.2.1
+#12 3.857   Downloaded fnv v1.0.7
+#12 3.859   Downloaded displaydoc v0.2.5
+#12 3.867   Downloaded never v0.1.0
+#12 3.867   Downloaded matchers v0.1.0
+#12 3.870   Downloaded ident_case v1.0.1
+#12 3.873   Downloaded icu_provider_macros v1.5.0
+#12 3.875   Downloaded cfg-if v1.0.0
+#12 3.878   Downloaded autocfg v1.4.0
+#12 3.883   Downloaded atomic-waker v1.1.2
+#12 3.888   Downloaded foreign-types-shared v0.1.1
+#12 3.889   Downloaded foreign-types v0.3.2
+#12 3.891   Downloaded equivalent v1.0.2
+#12 3.896   Downloaded diligent-date-parser v0.1.5
+#12 3.900   Downloaded cfg_aliases v0.2.1
+#12 3.903   Downloaded darling_macro v0.20.11
+#12 4.007    Compiling proc-macro2 v1.0.95
+#12 4.007    Compiling unicode-ident v1.0.18
+#12 4.007    Compiling cfg-if v1.0.0
+#12 4.007    Compiling libc v0.2.172
+#12 4.090    Compiling autocfg v1.4.0
+#12 4.112    Compiling smallvec v1.15.0
+#12 4.491    Compiling once_cell v1.21.3
+#12 4.733    Compiling shlex v1.3.0
+#12 4.812    Compiling pin-project-lite v0.2.16
+#12 4.894    Compiling cc v1.2.21
+#12 4.929    Compiling bytes v1.10.1
+#12 5.502    Compiling quote v1.0.40
+#12 5.640    Compiling lock_api v0.4.12
+#12 5.876    Compiling syn v2.0.101
+#12 5.902    Compiling itoa v1.0.15
+#12 6.155    Compiling futures-core v0.3.31
+#12 6.355    Compiling parking_lot_core v0.9.10
+#12 6.779    Compiling log v0.4.27
+#12 7.020    Compiling scopeguard v1.2.0
+#12 ...
+
+#10 [runtime 2/5] RUN apt-get update &&     apt-get install -y libssl3 ca-certificates &&     rm -rf /var/lib/apt/lists/*
+#10 7.886 140 added, 0 removed; done.
+#10 7.945 Processing triggers for libc-bin (2.36-9+deb12u10) ...
+#10 7.978 Processing triggers for ca-certificates (20230311) ...
+#10 7.990 Updating certificates in /etc/ssl/certs...
+#10 9.492 0 added, 0 removed; done.
+#10 9.492 Running hooks in /etc/ca-certificates/update.d...
+#10 9.496 done.
+#10 DONE 9.9s
+
+#13 [runtime 3/5] WORKDIR /app
+#13 DONE 0.1s
+
+#12 [builder 5/9] RUN cargo build --release --locked
+#12 7.608    Compiling stable_deref_trait v1.2.0
+#12 7.671    Compiling parking_lot v0.12.3
+#12 7.837    Compiling mio v1.0.3
+#12 8.105    Compiling signal-hook-registry v1.4.5
+#12 9.449    Compiling socket2 v0.5.9
+#12 9.613    Compiling tracing-core v0.1.33
+#12 9.823    Compiling fnv v1.0.7
+#12 9.885    Compiling http v1.3.1
+#12 11.05    Compiling serde v1.0.219
+#12 11.15    Compiling vcpkg v0.2.15
+#12 11.37    Compiling pkg-config v0.3.32
+#12 12.07    Compiling http-body v1.0.1
+#12 12.10    Compiling openssl-sys v0.9.108
+#12 12.18    Compiling slab v0.4.9
+#12 12.37    Compiling writeable v0.5.5
+#12 12.76    Compiling synstructure v0.13.2
+#12 13.06    Compiling icu_locid_transform_data v1.5.1
+#12 13.13    Compiling litemap v0.7.5
+#12 13.22    Compiling zeroize v1.8.1
+#12 13.38    Compiling rustls-pki-types v1.12.0
+#12 13.50    Compiling ring v0.17.14
+#12 13.53    Compiling tower-service v0.3.3
+#12 13.63    Compiling icu_properties_data v1.5.1
+#12 13.78    Compiling httparse v1.10.1
+#12 14.12    Compiling ident_case v1.0.1
+#12 14.12    Compiling equivalent v1.0.2
+#12 14.16    Compiling pin-utils v0.1.0
+#12 14.19    Compiling futures-task v0.3.31
+#12 14.21    Compiling hashbrown v0.15.3
+#12 14.32    Compiling strsim v0.11.1
+#12 14.64    Compiling futures-sink v0.3.31
+#12 14.66    Compiling darling_core v0.20.11
+#12 14.72    Compiling futures-util v0.3.31
+#12 15.08    Compiling zerofrom-derive v0.1.6
+#12 15.17    Compiling yoke-derive v0.7.5
+#12 16.75    Compiling tokio-macros v2.5.0
+#12 17.11    Compiling zerofrom v0.1.6
+#12 17.25    Compiling yoke v0.7.5
+#12 17.35    Compiling zerovec-derive v0.10.3
+#12 17.45    Compiling tracing-attributes v0.1.28
+#12 17.71    Compiling tokio v1.45.0
+#12 18.39    Compiling displaydoc v0.2.5
+#12 19.04    Compiling zerovec v0.10.4
+#12 19.38    Compiling serde_derive v1.0.219
+#12 19.48    Compiling tracing v0.1.41
+#12 20.46    Compiling icu_provider_macros v1.5.0
+#12 21.70    Compiling tinystr v0.7.6
+#12 21.90    Compiling icu_locid v1.5.0
+#12 22.00    Compiling indexmap v2.9.0
+#12 26.04    Compiling icu_provider v1.5.0
+#12 30.91    Compiling tokio-util v0.7.15
+#12 32.87    Compiling atomic-waker v1.1.2
+#12 32.96    Compiling try-lock v0.2.5
+#12 33.05    Compiling icu_normalizer_data v1.5.1
+#12 33.28    Compiling want v0.3.1
+#12 33.64    Compiling h2 v0.4.10
+#12 34.03    Compiling icu_locid_transform v1.5.0
+#12 40.02    Compiling icu_collections v1.5.0
+#12 CANCELED
+ERROR: failed to solve: Canceled: context canceled

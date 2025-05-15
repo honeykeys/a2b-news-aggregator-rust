@@ -7,7 +7,10 @@ RUN cargo build --release --locked
 RUN rm -rf src
 COPY src ./src
 RUN cargo build --release --locked
-FROM debian:bookworm-slim AS runtime
+RUN echo "--- Linked shared libraries for a2b_news_aggregator ---" && \
+    ldd /usr/src/a2b_news_aggregator/target/release/a2b_news_aggregator && \
+    echo "--------------------------------------------------------"
+FROM debian:bookworm AS runtime
 RUN apt-get update && \
     apt-get install -y libssl3 ca-certificates && \
     rm -rf /var/lib/apt/lists/*
